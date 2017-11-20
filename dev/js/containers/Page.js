@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import SearchBar from '../components/SearchBar';
-
+import UnMatchedDataList from '../components/UnMatchedDataList';
 
 export default class Page extends Component {
   constructor(props) {
@@ -11,8 +11,9 @@ export default class Page extends Component {
     return (<div>
       <h2>Ladbrokes</h2>
       <SearchBar />
-      <hr />
+      <br />
       <div>
+        <UnMatchedDataList />
       </div>
     </div>);
   }
