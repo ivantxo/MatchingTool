@@ -4,9 +4,11 @@ import {connect} from 'react-redux';
 
 class UnMatchedDataList extends Component {
   renderList() {
-    return this.props.ladbrokesData.map((row) => {
+    return this.props.ladbrokesData.map((row, index) => {
       return (
-        <span><input type="radio" key={row.eventId} /> {row.match}<br /></span>
+        <span key={index}>
+          <input type="radio" name="fixture" value={row.eventId} /> {row.match}<br />
+        </span>
       );
     });
   }
@@ -18,18 +20,11 @@ class UnMatchedDataList extends Component {
   }
 }
 
-// const UnMatchedDataList = (props) =>
-//   <div>
-//     {this.props.ladbrokesData.map((row) => {
-//       <input type="radio" />
-//     })}
-//   </div>;
-
 function mapStateToProps(state) {
   return {
-    ladbrokesData: state.ladbrokesData
+    ladbrokesData: state.ladbrokesData,
+    sportsCastData: state.sportsCastData,
   };
 }
-
 
 export default connect(mapStateToProps)(UnMatchedDataList);
