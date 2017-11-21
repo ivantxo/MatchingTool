@@ -2,13 +2,15 @@ import React, {Component} from 'react';
 import SearchBar from '../components/SearchBar';
 import UnMatchedDataList from '../components/UnMatchedDataList';
 require('../../scss/style.scss');
+import {connect} from 'react-redux';
 
-export default class Page extends Component {
+class Page extends Component {
   constructor(props) {
     super(props);
   }
 
   render() {
+    const {ladbrokesData, sportsCastData} = this.props;
     return (
       <div>
         <div id="main-wrap">
@@ -20,16 +22,18 @@ export default class Page extends Component {
             <div><SearchBar /></div>
             <div id="leftPane">
               <h4>Ladbrokes</h4>
-              <div>
-                <UnMatchedDataList dataList={this.props.ladbrokesData} />
-              </div>
+              <UnMatchedDataList
+                dataList={this.props.ladbrokesData}
+                type="ladbrokes"
+              />
             </div>
 
             <div id="rightPane">
               <h4>Sports Cast</h4>
-              <div>
-                <UnMatchedDataList dataList={this.props.sportsCastData} />
-              </div>
+              <UnMatchedDataList
+                dataList={this.props.sportsCastData}
+                type="sportscast"
+              />
             </div>
 
           </div>
@@ -39,3 +43,12 @@ export default class Page extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    ladbrokesData: state.ladbrokesData,
+    sportsCastData: state.sportsCastData,
+  };
+}
+
+export default connect(mapStateToProps)(Page);
