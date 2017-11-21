@@ -4,9 +4,9 @@ import {connect} from 'react-redux';
 
 class UnMatchedDataList extends Component {
   renderList() {
-    return this.props.ladbrokesData.map((row, index) => {
+    return this.props.ladbrokesData.map((row) => {
       return (
-        <span key={index}>
+        <span key={row.eventId}>
           <input type="radio" name="fixture" value={row.eventId} /> {row.match}<br />
         </span>
       );
