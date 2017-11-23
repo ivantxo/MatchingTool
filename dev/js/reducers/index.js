@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux';
-import LadbrokesData from './reducer-ladbrokes-unmatched-data';
-import SportsCastData from './reducer-sportscast-unmatched-data';
+import LocalData from './reducer-ladbrokes-unmatched-data';
+import RemoteData from './reducer-sportscast-unmatched-data';
 
 const allReducers = combineReducers({
-  ladbrokesData: LadbrokesData,
-  sportsCastData: SportsCastData,
+  localData: LocalData,
+  remoteData: RemoteData,
 });
 
 export default allReducers

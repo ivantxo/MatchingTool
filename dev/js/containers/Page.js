@@ -10,7 +10,7 @@ class Page extends Component {
   }
 
   render() {
-    const {ladbrokesData, sportsCastData} = this.props;
+    const {localData, remoteData} = this.props;
     return (
       <div>
         <div id="main-wrap">
@@ -21,18 +21,18 @@ class Page extends Component {
 
             <div><SearchBar /></div>
             <div id="leftPane">
-              <h4>Ladbrokes</h4>
+              <h4>Local Data</h4>
               <UnMatchedDataList
-                dataList={this.props.ladbrokesData}
-                type="ladbrokes"
+                dataList={this.props.localData}
+                type="local"
               />
             </div>
 
             <div id="rightPane">
-              <h4>Sports Cast</h4>
+              <h4>Remote Data</h4>
               <UnMatchedDataList
-                dataList={this.props.sportsCastData}
-                type="sportscast"
+                dataList={this.props.remoteData}
+                type="remote"
               />
             </div>
 
@@ -49,8 +49,8 @@ class Page extends Component {
 
 function mapStateToProps(state) {
   return {
-    ladbrokesData: state.ladbrokesData,
-    sportsCastData: state.sportsCastData,
+    localData: state.localData,
+    remoteData: state.remoteData,
   };
 }
 
